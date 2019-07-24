@@ -8,7 +8,7 @@ ARG configuration=production
 RUN npm run production
 
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
-FROM nginx:1.17.1-alpine
+FROM nginx:1.17.2-alpine
 COPY --from=build-stage /app/public/ /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
